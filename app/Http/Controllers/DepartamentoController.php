@@ -31,7 +31,10 @@ class DepartamentoController extends Controller
      */
     public function create()
     {
-        //
+        $paises = DB::table('tb_pais')
+        ->orderby('pais_nomb')
+        ->get();
+        return view('departamento.new',['paises' => $paises]);
     }
 
     /**
@@ -42,7 +45,18 @@ class DepartamentoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $Departamento = new Departamento();
+        // $comuna->comu codi $request->id;
+        // El código de comuna es auto incremental
+        $Departamento->depa_nomb = $request->name;
+        $Departamento->pais_codi = $request->code;
+        $Departamento->save();
+
+        $departamentos = DB::table('tb_departamento')
+        ->join('tb_pais','tb_departamento.pais_codi','=','tb_pais.pais_codi')
+        ->select('tb_departamento.*', "tb_pais.pais_nomb")
+        ->get();
+        return view('departamento.index',['departamentos'=>$departamentos]);
     }
 
     /**
