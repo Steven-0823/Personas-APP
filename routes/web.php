@@ -3,6 +3,7 @@ use App\Http\Controllers\ComunaController;
 use App\Http\Controllers\MunicipioController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DepartamentoController;
+use App\Http\Controllers\PaisController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,3 +41,7 @@ Route::get('/Departamentos/create',[DepartamentoController::class,'create']) ->n
 Route::delete('/Departamentos/{departamento}',[DepartamentoController::class,'destroy']) ->name('departamento.destroy');
 Route::put('/Departamentos/{departamento}',[DepartamentoController::class,'update']) ->name('departamento.update');
 Route::get('/Departamentos/{departamento}/edit',[DepartamentoController::class,'edit']) ->name('departamento.edit');
+
+
+
+Route::get('/Pais',[PaisController::class,'index']) ->name('pais.index');
