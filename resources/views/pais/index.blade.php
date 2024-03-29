@@ -14,7 +14,7 @@
   <div class="container">
     <h1>Lista De Paises</h1>
     
-    <a href="{{ route('pais.index') }}" class="btn btn-success">Add</a>
+    <a href="{{ route('pais.create') }}" class="btn btn-success">Add</a>
 
     <table class="table">
     <thead>
