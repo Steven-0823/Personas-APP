@@ -30,15 +30,15 @@
                         <th scope="row">{{ $municipio->muni_codi }}</th>
                         <td>{{ $municipio->muni_nomb }}</td>
                         <td>{{ $municipio->depa_nomb }}</td>
-                        {{-- <td>
-                            <a href="{{route('comuna.edit', ['comuna' =>$comuna->comu_codi])}}"
-                                class="btn btn-info">edit</a></li>
-                            <form action="{{route('comuna.destroy',['comuna' => $comuna->comu_codi])}}"
+                        <td>
+                            {{-- <a href="{{route('comuna.edit', ['comuna' =>$comuna->comu_codi])}}"
+                                class="btn btn-info">edit</a></li> --}}
+                            <form action="{{route('municipio.destroy',['municipio' => $municipio->muni_codi])}}"
                             method="POST" style="display: inline-block">
                             @method('delete')
                             @csrf
                             <input class="btn btn-danger" type="submit" value="Delete">
-                          </form></td> --}}
+                          </form></td>
                     </tr>
                     @endforeach
                 </tbody>
