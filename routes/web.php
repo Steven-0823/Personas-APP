@@ -48,3 +48,5 @@ Route::get('/Pais',[PaisController::class,'index']) ->name('pais.index');
 Route::post('/Pais',[PaisController::class,'store']) ->name('pais.store');
 Route::get('/Pais/create',[PaisController::class,'create']) ->name('pais.create');
 Route::delete('/Pais/{pais}', [PaisController::class, 'destroy'])->name('paises.destroy');
+Route::put('/Pais/{pais}',[PaisController::class,'update']) ->name('paises.update');
+Route::get('/Pais/{pais}/edit', [PaisController::class, 'edit'])->name('paises.edit');
