@@ -26,4 +26,5 @@ Route::get('/Comunas/{comuna}/edit',[ComunaController::class,'edit']) ->name('co
 
 
 Route::get('/Municipio',[MunicipioController::class,'index']) ->name('municipio.index');
-
+Route::post('/Municipio',[MunicipioController::class,'store']) ->name('municipio.store');
+Route::get('/Municipio/create',[MunicipioController::class,'create']) ->name('municipio.create');

@@ -33,7 +33,10 @@ class MunicipioController extends Controller
      */
     public function create()
     {
-        //
+        $departamentos = DB::table('tb_departamento')
+        ->orderby('depa_nomb')
+        ->get();
+        return view('municipio.new',['departamentos' => $departamentos]);
     }
 
     /**
@@ -44,7 +47,18 @@ class MunicipioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $Municipio = new Municipio();
+        // $comuna->comu codi $request->id;
+        // El código de comuna es auto incremental
+        $Municipio->muni_nomb = $request->name;
+        $Municipio->depa_codi = $request->code;
+        $Municipio->save();
+
+        $municipios = DB::table('tb_municipio')
+        ->join('tb_departamento','tb_municipio.depa_codi','=','tb_departamento.depa_codi')
+        ->select('tb_municipio.*', "tb_departamento.depa_nomb")
+        ->get();
+        return view('municipio.index',['municipios'=>$municipios]);
     }
 
     /**
