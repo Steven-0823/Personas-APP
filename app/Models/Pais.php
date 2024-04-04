@@ -10,5 +10,7 @@ class Pais extends Model
     use HasFactory;
     protected $table ="tb_pais";
     protected $primaryKey ='pais_code';
+    public $incrementing = false;
+    protected $keyType = 'string';
     public $timestamps = false;
 }
